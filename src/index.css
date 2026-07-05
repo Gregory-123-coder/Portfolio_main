@@ -1,0 +1,178 @@
+:root {
+  --ivory: #FAF7F2;
+  --sand: #E8DDD0;
+  --ember: #C2390A;
+  --ember-light: #E04B18;
+  --gold: #C8860A;
+  --gold-light: #F0A820;
+  --charcoal: #1C1C1C;
+  --charcoal-mid: #3A3A3A;
+  --muted: #7A6E64;
+  --white: #FFFFFF;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--ember); color: var(--white); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--sand); }
+::-webkit-scrollbar-thumb { background: var(--ember); border-radius: 3px; }
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+}
+
+/* Section base */
+section { padding: 100px 0; position: relative; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* Section label */
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* Section heading */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.15;
+  margin-bottom: 56px;
+}
+.section-heading span { color: var(--ember); }
+
+/* Gold rule */
+.gold-rule {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ember), var(--gold));
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ember);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  background: var(--ember-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(194, 57, 10, 0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ember);
+  padding: 13px 30px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid var(--ember);
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.02em;
+}
+.btn-outline:hover {
+  background: var(--ember);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  background: var(--sand);
+  color: var(--charcoal-mid);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+.tag-ember {
+  background: rgba(194, 57, 10, 0.1);
+  color: var(--ember);
+}

@@ -1,0 +1,95 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: all 0.4s ease;
+}
+.navbar.scrolled {
+  background: rgba(250, 247, 242, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 14px 0;
+  box-shadow: 0 2px 20px rgba(28, 28, 28, 0.08);
+  border-bottom: 1px solid rgba(194, 57, 10, 0.1);
+}
+
+.nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--ember); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--charcoal-mid);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 2px;
+  background: var(--ember);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ember); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+.nav-resume {
+  background: var(--ember) !important;
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: 3px;
+  font-weight: 600 !important;
+  transition: background 0.2s, transform 0.2s !important;
+}
+.nav-resume:hover { background: var(--ember-light) !important; transform: translateY(-1px); }
+.nav-resume::after { display: none !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); transition: all 0.3s; border-radius: 2px; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 860px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--ivory);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    font-size: 1.2rem;
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+}

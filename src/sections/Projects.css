@@ -1,0 +1,109 @@
+.projects { background: var(--ivory); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--sand);
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ember), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.project-card:hover::before { transform: scaleX(1); }
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(194,57,10,0.12);
+  border-color: rgba(194,57,10,0.2);
+}
+
+.project-highlight {
+  border-color: rgba(194,57,10,0.25);
+  background: linear-gradient(135deg, #fff 80%, rgba(194,57,10,0.03) 100%);
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-emoji { font-size: 1.5rem; }
+
+.project-featured {
+  margin-left: auto;
+  background: linear-gradient(90deg, var(--ember), var(--gold));
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.project-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ember);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border: 1px solid var(--ember);
+  border-radius: 4px;
+  transition: all 0.25s;
+  align-self: flex-start;
+  margin-top: auto;
+}
+.project-demo:hover { background: var(--ember); color: var(--white); }
+
+.project-no-demo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: auto;
+  opacity: 0.6;
+}
+
+@media (max-width: 960px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
