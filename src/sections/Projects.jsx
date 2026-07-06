@@ -8,7 +8,7 @@ const PROJECTS = [
     tags: ['Python', 'ML', 'RAG', 'LangChain', 'NLP'],
     demo: 'https://drive.google.com/file/d/1uzHjLB3bvuV0svIIHIHL1qqUYGcROqYo/view?usp=drive_link',
     highlight: true,
-    emoji: '🧠',
+    code: 'AI',
     label: 'AI Platform',
   },
   {
@@ -17,7 +17,7 @@ const PROJECTS = [
     tags: ['LangChain', 'LangGraph', 'Generative AI', 'Agents'],
     demo: 'https://drive.google.com/file/d/1tAjy8sS3wy-orXQsr4qg9QVUyFtgfkxJ/view?usp=drive_link',
     highlight: true,
-    emoji: '🏆',
+    code: 'ET',
     label: 'Hackathon',
   },
   {
@@ -26,7 +26,7 @@ const PROJECTS = [
     tags: ['Flutter', 'Dart', 'Firebase', 'Mobile'],
     demo: null,
     highlight: false,
-    emoji: '📱',
+    code: 'APP',
     label: 'Mobile App',
   },
   {
@@ -35,7 +35,7 @@ const PROJECTS = [
     tags: ['Flutter', 'Dart', 'API Integration', 'Desktop'],
     demo: null,
     highlight: false,
-    emoji: '🖥️',
+    code: 'OPS',
     label: 'Desktop App',
   },
   {
@@ -44,7 +44,7 @@ const PROJECTS = [
     tags: ['Solidity', 'Ganache', 'MetaMask', 'Web3', 'Blockchain'],
     demo: null,
     highlight: false,
-    emoji: '⛓️',
+    code: 'WEB3',
     label: 'Blockchain',
   },
 ];
@@ -63,7 +63,7 @@ export default function Projects() {
           {PROJECTS.map((p, i) => (
             <div key={i} className={`project-card reveal delay-${(i % 4) + 1} ${p.highlight ? 'project-highlight' : ''}`}>
               <div className="project-top">
-                <span className="project-emoji">{p.emoji}</span>
+                <span className="project-code">{p.code}</span>
                 <span className="tag tag-ember">{p.label}</span>
                 {p.highlight && <span className="project-featured">Featured</span>}
               </div>
@@ -74,7 +74,7 @@ export default function Projects() {
               </div>
               {p.demo && (
                 <a href={p.demo} target="_blank" rel="noreferrer" className="project-demo">
-                  Watch Demo ↗
+                  Watch Demo
                 </a>
               )}
               {!p.demo && (

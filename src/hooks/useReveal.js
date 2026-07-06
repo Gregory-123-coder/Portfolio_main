@@ -7,7 +7,7 @@ export function useReveal(options = {}) {
     const el = ref.current;
     if (!el) return;
 
-    const targets = el.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const targets = el.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

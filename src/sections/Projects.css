@@ -17,6 +17,7 @@
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 .project-card::before {
   content: '';
@@ -29,8 +30,18 @@
   transition: transform 0.4s ease;
 }
 .project-card:hover::before { transform: scaleX(1); }
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: -60% -80%;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 42%, rgba(240, 168, 32, 0.13), transparent 58%);
+  transform: translateX(-35%) rotate(8deg);
+  transition: transform 0.75s ease;
+}
+.project-card:hover::after { transform: translateX(35%) rotate(8deg); }
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) rotateX(2deg);
   box-shadow: 0 16px 40px rgba(194,57,10,0.12);
   border-color: rgba(194,57,10,0.2);
 }
@@ -47,7 +58,20 @@
   flex-wrap: wrap;
 }
 
-.project-emoji { font-size: 1.5rem; }
+.project-code {
+  min-width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--charcoal);
+  color: var(--gold-light);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
 
 .project-featured {
   margin-left: auto;

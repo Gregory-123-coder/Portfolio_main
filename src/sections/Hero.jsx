@@ -129,13 +129,18 @@ export default function Hero() {
       <canvas ref={canvasRef} className="hero-canvas" />
       <div className="hero-content container">
         <div className="hero-text">
-          <span className="hero-eyebrow">Mumbai, India — Open to Global Opportunities</span>
+          <span className="hero-eyebrow">Mumbai, India - Open to Global Opportunities</span>
           <h1 className="hero-name">Gregory<br /><span>Robert</span></h1>
           <div className="hero-typewriter">
             <span className="typewriter-label">{displayed}</span>
             <span className="cursor">|</span>
           </div>
           <p className="hero-tagline">Building intelligent systems at the intersection of AI and engineering.</p>
+          <div className="hero-storyline" aria-label="Portfolio storyline">
+            <span>AI foundations</span>
+            <span>Agentic systems</span>
+            <span>Cloud-ready products</span>
+          </div>
           <div className="hero-cta">
             <a href="#projects" className="btn-primary">View My Work</a>
             <a href="#contact" className="btn-outline">Get In Touch</a>
@@ -149,6 +154,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual">
+          <div className="cinema-frame" aria-hidden="true" />
           <div className="avatar-ring">
             <div className="avatar-inner">
               <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,10 +166,10 @@ export default function Hero() {
               </svg>
             </div>
           </div>
-          <div className="floating-badge badge-1"><span>🤖</span> Agentic AI</div>
-          <div className="floating-badge badge-2"><span>⚡</span> LangGraph</div>
-          <div className="floating-badge badge-3"><span>🔥</span> RAG Pipelines</div>
-          <div className="floating-badge badge-4"><span>☁️</span> AWS · OCI</div>
+          <div className="floating-badge badge-1"><span>AI</span> Agentic AI</div>
+          <div className="floating-badge badge-2"><span>LG</span> LangGraph</div>
+          <div className="floating-badge badge-3"><span>RAG</span> Retrieval Pipelines</div>
+          <div className="floating-badge badge-4"><span>CL</span> AWS / OCI</div>
         </div>
       </div>
       <div className="hero-scroll-hint">

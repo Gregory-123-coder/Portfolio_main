@@ -3,6 +3,7 @@ import './Navbar.css';
 
 const links = [
   { label: 'About', href: '#about' },
+  { label: 'Story', href: '#story' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
@@ -15,6 +16,16 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState('');
+
+  const scrollToSection = (event, href) => {
+    event.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    setMenuOpen(false);
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', href);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -34,14 +45,14 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
-        <a href="#hero" className="nav-logo">GR<span>.</span></a>
+        <a href="#hero" className="nav-logo" onClick={(event) => scrollToSection(event, '#hero')}>GR<span>.</span></a>
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {links.map(l => (
             <li key={l.href}>
               <a
                 href={l.href}
                 className={active === l.href.slice(1) ? 'active' : ''}
-                onClick={() => setMenuOpen(false)}
+                onClick={(event) => scrollToSection(event, l.href)}
               >{l.label}</a>
             </li>
           ))}
