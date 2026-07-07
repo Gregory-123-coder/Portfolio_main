@@ -15,7 +15,7 @@ const PROJECTS = [
     title: 'ET GenAI Hackathon Project',
     description: 'Semi-finalist submission at the ET Generative AI Hackathon. An agentic AI solution built with LangChain/LangGraph demonstrating real-world generative AI capabilities.',
     tags: ['LangChain', 'LangGraph', 'Generative AI', 'Agents'],
-    demo: null ,
+    demo: 'https://drive.google.com/file/d/1eSbZ62CFn1LUNXdL6BoPSbaIv9lWLJpv/view?usp=drive_link' ,
     highlight: true,
     code: 'ET',
     label: 'Hackathon',
